@@ -11,7 +11,7 @@ count_request_promocode = 0
 
 @bot.message_handler(commands=['start'])
 def request_handler(message):
-    bot.send_message(message.chat.id,'')
+    bot.send_message(message.chat.id,'welcome message')
 
 
 @bot.message_handler(content_types=['text'])
