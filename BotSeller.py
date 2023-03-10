@@ -44,7 +44,7 @@ def answer(message):
         # message to the seller
         bot.send_message(message.chat.id, 'Working promo code!', reply_markup= markup)
 
-        #сообщение покупателю
+        #message to the buyer
         client_bot_buyer = telebot.TeleBot(config.TOKENbUYER)
         client_bot_buyer.send_message(answers, 'Thank you! Your code has been taken into account')
     else:
