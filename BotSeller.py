@@ -1,3 +1,4 @@
+import re
 import telebot
 from sql import TelbotDatabase
 import config
@@ -28,7 +29,7 @@ def write(message):
 def answer(message):
     database = TelbotDatabase()
 
-    select = f"""SELECT promocodecol, chatid FROM {config.log_in_mysql['database']}.promocode WHERE promocodecol = '{message.text}';"""
+    select = f"""SELECT promocodecol, chatid FROM {config.log_in_mysql['database']}.promocode WHERE promocodecol = '{re.sub(r"[^a-zA-Z0-9]+", "", message.text)}';"""
     answers = ''
     for colums in database.data_answer(select):
         answers = colums[1]
